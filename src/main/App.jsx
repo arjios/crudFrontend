@@ -1,19 +1,22 @@
 import React from 'react'
+import {BrowserRouter} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.min.css'
 
 import './App.css'
 
-import Main from '../components/template/Main'
+import Routers from './Routers'
 import Nav from '../components/template/Nav'
 import Logo from '../components/template/Logo'
 import Footer from '../components/template/Footer'
 
 export default props =>
-    <div className="app">
-        <Logo />
-        <Nav />
-        <Main icon="home" title="Inicio" subtitle="Segundo projeto de React"/>
-        <Footer />
-    </div>
+    <BrowserRouter>
+        <div className="app">
+            <Logo />
+            <Nav />
+            <Routers />
+            <Footer />
+        </div>
+    </BrowserRouter>
