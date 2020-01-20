@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 
 import Axios from 'axios'
 
@@ -10,7 +10,7 @@ const headerProps = {
     subtitle: 'Cadastro de usuarios: Incluir, Listar, Alterar e Excluir'
 }
 
-const baseURL = 'http://localhost:3001/user'
+const baseUrl = 'http://localhost:3001/user'
 const initialState = {
     user: {name: '', email: ''},
     list: []
@@ -27,7 +27,7 @@ export default class UserCrud extends Component {
         const user = this.state.user
         const method = user.id ? 'put' : 'post'
         const url = user.id ? `${baseUrl}/${user.id}` :  baseUrl
-        axios[method](url, user)
+        Axios[method](url, user)
             .then(resp => {
                 const list = this.getUpdatedList(resp.data)
                 this.initialState({ user: initialState.list, list })
@@ -48,6 +48,7 @@ export default class UserCrud extends Component {
 
     renderForm() {
         return (
+            <Fragment>
             <div className="form">
                 <div className="row">
                     <div className="col-12 col-md-6">
@@ -63,8 +64,6 @@ export default class UserCrud extends Component {
                     </div>
                 </div>
             </div>
-
-
             <div className="form">
                 <div className="row">
                     <div className="col-12 col-md-6">
@@ -96,7 +95,7 @@ export default class UserCrud extends Component {
                 </div>            
             </div>
 
-
+            </Fragment>
         )
     }
 
