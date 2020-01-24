@@ -2,7 +2,7 @@ import React from 'react'
 
 import './Logo.css'
 
-import logo from '../../assets/imgs/logo.png'
+import logo from '../../assets/imgs/logo2.png'
 
 export default props => 
     <aside ClassName='logo'>
